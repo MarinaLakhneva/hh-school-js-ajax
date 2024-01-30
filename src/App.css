@@ -1,0 +1,88 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+.App{
+	display: flex;
+	justify-items: center;
+	flex-direction: column;
+}
+.store{
+	position: absolute;
+	margin: 40px;
+	padding: 10px;
+	width: 250px;
+	border-radius: 5px;
+	color: #ffffff;
+	background: #333333;
+}
+.store ul{
+	margin-left: 90px;
+}
+.search-box{
+	width: 700px;
+	background: #333333;
+	margin: 200px auto 0;
+	border-radius: 5px;
+}
+.row{
+	display: flex;
+	align-content: center;
+	padding: 10px 25px;
+}
+input{
+	flex: 1;
+	height: 25px;
+	background: transparent;
+	border: 0;
+	outline: 0;
+	font-size: 17px;
+	color: #ffffff;
+}
+button{
+	background: transparent;
+	border: 0;
+	outline: 0;
+}
+button .fa-solid{
+	width: 20px;
+	color: #555555;
+	font-size: 20px;
+	cursor: pointer;
+}
+::placeholder{
+	color: #555555;
+}
+i:hover{
+	color: #ffffff;
+}
+.result-box ul{
+	border-top: 1px solid #999999;
+	padding: 15px 10px;
+}
+.result-box ul li{
+	list-style: none;
+	border-radius: 3px;
+	padding: 15px 10px;
+	cursor: pointer;
+	color: #ffffff;
+}
+.result-box ul li:hover{
+	color: #333333;
+	background: #e9f3ff;
+}
+#ingredients ul{
+	display: flex;
+	flex-direction: column;
+	margin-right: 50px;
+}
+.info{
+	display: flex;
+	justify-content: center;
+	margin-top: 50px;
+}
+
+ul{
+	list-style-type: none;
+}
