@@ -2,12 +2,11 @@ import './App.css';
 import {Helmet} from "react-helmet";
 import {GetData} from './request';
 import logo from './bar.jpg';
-
 function App() {
   return (
     <div className="App">
       <div className="store">
-        <p>Requests: </p>
+        <p>Requests</p>
         <p id="local"></p>
       </div>
       <div className="search-box">

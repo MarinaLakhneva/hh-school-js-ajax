@@ -8,7 +8,7 @@ let availableKeywords = [
 	'Long Island Ice Tea ',
 	'Martini',
 	'Wine Punch',
-	'Negroni',
+	'Negroni'
 ];
 
 const resultsBox = document.querySelector(".result-box");
