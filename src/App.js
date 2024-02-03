@@ -6,7 +6,7 @@ function App() {
   return (
     <div className="App">
       <div className="store">
-        <p>Requests</p>
+        <p>Requests:</p>
         <p id="local"></p>
       </div>
       <div className="search-box">

@@ -10,7 +10,7 @@
 }
 .store{
 	position: absolute;
-	margin: 40px;
+	margin: 20px auto auto 30px;
 	padding: 10px;
 	width: 250px;
 	border-radius: 5px;
@@ -23,7 +23,7 @@
 .search-box{
 	width: 700px;
 	background: #333333;
-	margin: 200px auto 0;
+	margin: 70px auto 0;
 	border-radius: 5px;
 }
 .row{
