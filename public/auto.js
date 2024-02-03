@@ -1,3 +1,6 @@
+let requests_user = [];
+let i = 0;
+let call = false;
 let availableKeywords = [
 	'Acute Tropicana',
 	'Bianca',
@@ -12,6 +15,7 @@ let availableKeywords = [
 ];
 
 const resultsBox = document.querySelector(".result-box");
+const suggestBox = document.querySelector(".suggest-box")
 const inputBox = document.getElementById("input-box");
 
 inputBox.onkeyup = function (){
@@ -22,23 +26,42 @@ inputBox.onkeyup = function (){
 			return keyword.toLowerCase().includes(input.toLowerCase());
 		});
 	}
-	display(result);
 	
+	display(result, resultsBox);
+	if (call === true){
+		display(requests_user, suggestBox);
+	}
+	else {
+		call = true;
+	}
 	if(!result.length){
-		resultsBox.innerHTML = '';
+		resultsBox.innerHTML = "";
+		suggestBox.innerHTML = "";
 		document.getElementById("ingredients").innerHTML = null;
 		document.getElementById("pic").src = "";
 	}
 }
 
-function display(result){
+function display(result, type){
 	const content = result.map((list)=>{
 		return "<li onclick='selectInput(this)'>" + list + "</li>";
 	})
-	resultsBox.innerHTML = "<ul>" + content.join('') + "</ul>";
+	type.innerHTML = "<ul>" + content.join('') + "</ul>";
 }
-
 function selectInput(list){
 	inputBox.value = list.innerHTML;
+	if(requests_user.length === 5){
+		if(i === 4){
+			i = 0;
+		}
+		else {
+			requests_user[i] = inputBox.value;
+			i++;
+		}
+	}
+	else {
+		requests_user.push(inputBox.value);
+	}
 	resultsBox.innerHTML = '';
+	suggestBox.innerHTML = '';
 }

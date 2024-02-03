@@ -61,6 +61,10 @@ i:hover{
 	border-top: 1px solid #999999;
 	padding: 15px 10px;
 }
+.search-box ul{
+	border-top: 1px solid #999999;
+	padding: 15px 10px;
+}
 .result-box ul li{
 	list-style: none;
 	border-radius: 3px;
@@ -68,7 +72,18 @@ i:hover{
 	cursor: pointer;
 	color: #ffffff;
 }
+.suggest-box ul li{
+	list-style: none;
+	border-radius: 3px;
+	padding: 15px 10px;
+	cursor: pointer;
+	color: hotpink;
+}
 .result-box ul li:hover{
+	color: #333333;
+	background: #e9f3ff;
+}
+.suggest-box ul li:hover{
 	color: #333333;
 	background: #e9f3ff;
 }
@@ -86,3 +101,4 @@ i:hover{
 ul{
 	list-style-type: none;
 }
+

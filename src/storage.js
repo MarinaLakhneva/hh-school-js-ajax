@@ -1,5 +1,5 @@
-export function RequestStorage(count){
-	if ('index'+count === 'index3'){
+export function RequestStorage(count, n){
+	if ('index'+count === 'index'+n){
 		count = 1;
 	} else{
 		count++;

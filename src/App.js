@@ -18,6 +18,7 @@ function App() {
              autoComplete="off"/>
           <button onClick={GetData}><i className="fa-solid fa-magnifying-glass"></i></button>
         </div>
+        <div className="suggest-box"></div>
         <div className="result-box"></div>
         <Helmet>
           <script src="auto.js"></script>

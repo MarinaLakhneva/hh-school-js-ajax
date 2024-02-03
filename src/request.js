@@ -2,20 +2,25 @@ import {RequestStorage} from './storage';
 import problem from './404.png';
 
 const URL_ = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?f=';
-let request = 0;
+let n_request = 0;
 let checklist = [];
 
-export function requests(n){
-	if(checklist[n-1] !== null){
-		checklist[n-1] = localStorage.getItem("index"+n);
+function requests(n, id, array){
+	if(array[n-1] !== null){
+		array[n-1] = localStorage.getItem("index"+n);
 	}
 	else {
-		checklist.push(localStorage.getItem("index"+n));
+		array.push(localStorage.getItem("index"+n));
 	}
-	const check = checklist.map((list)=>{
+	const check = array.map((list)=>{
 		return "<li onclick='selectInput(this)'>" + list + "</li>";
 	});
-	document.getElementById("local").innerHTML = "<ul>" + check.join('') + "</ul>";
+	document.getElementById(id).innerHTML = "<ul>" + check.join('') + "</ul>";
+}
+function work_area(image){
+	document.getElementById("pic").src = image;
+	n_request = RequestStorage(n_request, 3);
+	requests(n_request, "local", checklist);
 }
 export function GetData(){
 	let letter = document.getElementById('input-box').value[0];
@@ -34,7 +39,6 @@ export function GetData(){
 					let count = 1;
 					let ingredients = [];
 					if(document.getElementById('input-box').value === data.drinks[i].strDrink){
-						request = RequestStorage(request);
 						while(eval('data.drinks[i].strIngredient'+count) !== null){
 							ingredients[count-1] = eval('data.drinks[i].strIngredient'+count);
 							count++;
@@ -44,14 +48,12 @@ export function GetData(){
 							return "<li onclick='selectInput(this)'>" + list + "</li>";
 						});
 						document.getElementById("ingredients").innerHTML = "<ul>" + content.join('') + "</ul>";
-						document.getElementById("pic").src = data.drinks[i].strDrinkThumb;
-						requests(request);
+						work_area(data.drinks[i].strDrinkThumb);
+
 						return;
 					}
 					else if(i === size-1){
-						request = RequestStorage(request);
-						document.getElementById("pic").src = problem;
-						requests(request);
+						work_area(problem);
 						return;
 					}
 				}
