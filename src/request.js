@@ -1,6 +1,19 @@
 import {RequestStorage} from './storage';
 import problem from './404.png';
 
+let localStore = [];
+window.addEventListener('storage', e=>{
+	console.log('e', e);
+	
+	let str = e.key;
+	let lastChar = str.substr(str.length - 1);
+	localStore[lastChar] = localStorage.getItem(e.key);
+	const check = localStore.map((list)=>{
+		return "<li onclick='selectInput(this)'>" + list + "</li>";
+	});
+	document.getElementById('local').innerHTML = "<ul>" + check.join('') + "</ul>";
+})
+
 const URL_ = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?f=';
 let n_request = 0;
 let checklist = [];
