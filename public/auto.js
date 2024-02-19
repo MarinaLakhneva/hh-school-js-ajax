@@ -49,11 +49,9 @@ let count_s = 0;
 function display(result, type){
 	if(type === resultsBox){
 		count_q = result.length;
-		console.log("q",count_q);
 	}
 	else if(type === suggestBox){
 		count_s = result.length;
-		console.log("s",count_s);
 	}
 	if(count_q + count_s > 10){
 		if(type === resultsBox) {

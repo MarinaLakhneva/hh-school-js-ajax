@@ -1,7 +1,9 @@
 import {RequestStorage} from './storage';
 import problem from './404.png';
+import {checklist} from './App'
 
 let localStore = [];
+
 window.addEventListener('storage', e=>{
 	console.log('e', e);
 	
@@ -12,11 +14,11 @@ window.addEventListener('storage', e=>{
 		return "<li onclick='selectInput(this)'>" + list + "</li>";
 	});
 	document.getElementById('local').innerHTML = "<ul>" + check.join('') + "</ul>";
+	
 })
 
 const URL_ = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?f=';
 let n_request = 0;
-let checklist = [];
 
 function requests(n, id, array){
 	if(array[n-1] !== null){
@@ -38,6 +40,8 @@ function work_area(image){
 export function GetData(){
 	let letter = document.getElementById('input-box').value[0];
 	let URL = URL_+letter.toLowerCase();
+
+	
 	fetch(URL)
 		.then(
 			(response) => {

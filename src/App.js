@@ -2,7 +2,21 @@ import './App.css';
 import {Helmet} from "react-helmet";
 import {GetData} from './request';
 import logo from './bar.jpg';
+import {useEffect} from "react";
+
+export let checklist = [localStorage.getItem("index1"), localStorage.getItem("index2"), localStorage.getItem("index3")]
+
 function App() {
+  useEffect(() => {
+      if(localStorage.getItem("index1") === null){
+        checklist = [];
+      }
+      const check = checklist.map((list)=>{
+        return "<li onclick='selectInput(this)'>" + list + "</li>";
+      });
+      document.getElementById("local").innerHTML = "<ul>" + check.join('') + "</ul>";
+    }, []);
+  
   return (
     <div className="App">
       <div className="store">
@@ -33,3 +47,5 @@ function App() {
 }
 
 export default App;
+
+
